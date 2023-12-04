@@ -12,6 +12,9 @@ let cards = []
 
 const playGameButtonElem = document.getElementById('playGame')
 
+const collapsedGridAreaTemplate = '"a a" "a a"'
+const cardCollectionCellClass = ".card-pos-a"
+
 /*<dic class="card">
     <div class="card-inner">
         <div class="card-front">
@@ -50,7 +53,30 @@ function startRound()
 }
 function initializeNewRound(){
 
+
+
 }
+
+function collectCards(){
+    transformGridArea(collapsedGridAreaTemplate)
+
+}
+
+function transformGridArea(areas)
+{
+    cardContainerElem.style.gridTemplateAreas = areas
+
+}
+function addCardsToGridAreaCell(cellPositionClassName)
+{
+    const cellPositionElem = document.querySelector(cellPositionClassName)
+
+    cards.forEach((card, index) =>{
+        addChildElement(cellPositionElem, card)
+    })
+    
+}
+
 
 function createCards()
 {
