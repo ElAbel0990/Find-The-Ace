@@ -8,6 +8,9 @@ const cardObjectDefintions = [
 
 const cardBackImgPath = '/images/card-back-red.png'
 
+let cards = []
+
+const playGameButtonElem = document.getElementById('playGame')
 
 /*<dic class="card">
     <div class="card-inner">
@@ -20,10 +23,33 @@ const cardBackImgPath = '/images/card-back-red.png'
     </div>
 </dic> */
 
-createCards()
+
+loadGame()
 
 function loadGame(){
     createCards()
+
+    cards = document.querySelectorAll('.card')
+
+    playGameButtonElem.addEventListener('click', ()=>startGame())
+
+
+
+}
+function startGame(){
+    initializeNewGame()
+    startRound()
+
+}
+function initializeNewGame(){
+
+}
+function startRound()
+{
+    initializeNewRound()
+}
+function initializeNewRound(){
+
 }
 
 function createCards()
