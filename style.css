@@ -23,8 +23,8 @@ main {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    grid-template-areas:"a b"
-                        "c d";
+    grid-template-areas: "a b"
+                         "c d";
     border: 1px solid black;
 }
 
@@ -32,23 +32,31 @@ main {
     grid-area: a;
     background-color: gray;
 }
+
 .card-pos-b {
     grid-area: b;
     background-color: goldenrod;
 }
+
 .card-pos-c {
     grid-area: c;
     background-color: rosybrown;
 }
+
 .card-pos-d {
     grid-area: d;
     background-color: darkcyan;
 }
-.card-pos-a, .card-pos-b, .card-pos-c, .card-pos-d{
+
+.card-pos-a,
+.card-pos-b,
+.card-pos-c,
+.card-pos-d {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .card {
     position: absolute;
     height: var(--card-height);
@@ -56,6 +64,7 @@ main {
     perspective: 1000px;
     cursor: pointer;
 }
+
 .card-inner {
     position: relative;
     width: 100%;
@@ -64,6 +73,7 @@ main {
     transition: transform 0.6s;
     transform-style: preserve-3d;
 }
+
 .card-front,
 .card-back {
     position: absolute;
@@ -72,12 +82,15 @@ main {
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
 }
+
 .card-img {
     height: 100%;
 }
+
 .card-back {
     transform: rotateY(180deg);
 }
-.card-inner.flip-it{
+
+.card-inner.flip-it {
     transform: rotateY(180deg);
 }

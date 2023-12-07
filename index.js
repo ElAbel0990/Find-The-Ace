@@ -3,7 +3,7 @@ const cardObjectDefintions = [
     { id:1, imagePath: "/images/card-KingHearts.png" },
     { id:2, imagePath: "/images/card-JackClubs.png" },
     { id:3, imagePath: "/images/card-QueenDiamonds.png" },
-    { id:4, imagePath: "/images/card-AceSpades.png" },
+    { id:4, imagePath: "/images/card-AceSpades.png" }
 ]
 
 const cardBackImgPath = '/images/card-back-red.png'
@@ -56,6 +56,7 @@ function startRound()
     initializeNewRound()
     collectCards()
     flipCards(true)
+    shuffleCards()
 
 }
 function initializeNewRound(){
@@ -107,8 +108,8 @@ function flipCards(flipToBack){
 }
 function shuffleCards()
 {
-    const id = setInterval(shuffle, 12)
     let shuffleCount = 0
+    const id = setInterval(shuffle, 12)
 
     function shuffle()
     {
@@ -141,8 +142,52 @@ function randomizeCardPositions()
 function dealCards()
 {
     addCardsToAppropiateCell()
-    const areasTemplate = returnGrid
+    const areasTemplate = returnGridAreasMappedToCardPos()
+
+    transformGridArea(areasTemplate)
+
 }
+function returnGridAreasMappedToCardPos()
+{
+    let firstPart = ""
+    let secondPart = ""
+    let areas = ""
+
+    cards.forEach((card, index) => {
+        if(cardPositions[index] == 1)
+        {
+            areas = areas + "a "
+        }
+        else if(cardPositions[index] == 2)
+        {
+            areas = areas + "b "
+        }
+        else if(cardPositions[index] == 3)
+        {
+            areas = areas + "c "
+        }
+        else if(cardPositions[index] == 4)
+        {
+            areas = areas + "d "
+        }
+        if(index == 1)
+        {
+            firstPart = areas.substring(0, areas.length - 1)
+            areas = "";
+        }
+        else if (index == 3)
+        {
+            secondPart = areas.substring(0, areas.length - 1)
+        }
+        
+    })
+    
+    return `"${firstPart}" "${secondPart}"`
+
+
+}
+
+
 function addCardsToAppropiateCell()
 {
     cards.forEach((card)=>{
