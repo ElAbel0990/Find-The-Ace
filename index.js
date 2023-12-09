@@ -189,6 +189,8 @@ function loadGame(){
 
     cards = document.querySelectorAll('.card')
 
+    cardFlyInEffect()
+
     playGameButtonElem.addEventListener('click', ()=>startGame())
 
     updateStatusElement(scoreContainerElem, "none")
@@ -278,6 +280,30 @@ function flipCards(flipToBack){
             flipCard(card, flipToBack)
         },index * 100)
     })
+}
+
+function cardFlyInEffect()
+{
+    const id = setInterval(flyIn, 5)
+    let cardCount = 0;
+
+    let count = 0
+
+    function flyIn()
+    {
+        count++
+        if(cardCount == numCards)
+        {
+            clearInterval
+        }
+        if(count == 1 || count == 250 || count == 500 || count == 750)
+        {
+            cardCount++
+            let card = document.getElementById(cardCount)
+            card.classList.remove("fly-in")
+
+        }
+    }
 }
 
 function removeShuffleClasses()
@@ -429,6 +455,7 @@ function createCard(cardItem) {
 
     //add class and id to card element
     addClassToElement(cardElem, 'card')
+    addClassToElement(cardElem, 'fly-in')
     addIdToElement(cardElem, cardItem.id)
 
     //add class to inner card element

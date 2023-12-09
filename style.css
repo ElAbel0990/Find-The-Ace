@@ -196,3 +196,6 @@ header{
 .card.shuffle-right{
     transform: translateX(-350px) translateY(-40px);
 }
+.card.fly-in{
+    transform: translateY(-1000px) translateX(-600px) rotate(45deg);
+}
