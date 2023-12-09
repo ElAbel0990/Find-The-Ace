@@ -279,6 +279,36 @@ function flipCards(flipToBack){
         },index * 100)
     })
 }
+
+function removeShuffleClasses()
+{
+    cards.forEach((card) =>
+    {
+        card.classList.remove("shuffle-left")
+        card.classList.remove("shuffle-right")
+    })
+}
+function animateShuffle(shuffleCount)
+{
+    const random1 = Math.floor(Math.random() * numCards) + 1
+    const random2 = Math.floor(Math.random() * numCards) + 1
+    
+    let card1 = document.getElementById(random1)
+    let card2 = document.getElementById(random2)
+
+    if (shuffleCount % 4 == 0)
+    {
+        card1.classList.toggle("shuffle-left")
+        card1.style.zIndex = 100
+    }
+    if (shuffleCount % 10 == 0)
+    {
+        card2.classList.toggle("shuffle-right")
+        card2.style.zIndex = 200
+    }
+
+}
+
 function shuffleCards()
 {
     let shuffleCount = 0
@@ -288,10 +318,13 @@ function shuffleCards()
     {
         randomizeCardPositions()
 
+        animateShuffle(shuffleCount)
+
         if(shuffleCount == 500)
         {
             clearInterval(id)
             shufflingInProgress = false
+            removeShuffleClasses()
             dealCards()
             updateStatusElement(currentGameStatusElem, "block", primaryColor, "Please click the card that you think is the Ace of Spades...")
 
