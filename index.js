@@ -294,7 +294,8 @@ function cardFlyInEffect()
         count++
         if(cardCount == numCards)
         {
-            clearInterval
+            clearInterval(id)
+            playGameButtonElem.style.display = "inline-block"
         }
         if(count == 1 || count == 250 || count == 500 || count == 750)
         {
