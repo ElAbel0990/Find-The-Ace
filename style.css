@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 :root {
     --card-width: 157px;
     --card-height: 220px;
@@ -7,10 +8,12 @@
     --bagde-bg-color: darkgrey;
     --primary-color: black;
     --secondary-color: #ffffff;
+
+    --primary-font: 'Quicksand', sans-serif;
 }
 body {
     height: 100vh;
-
+    font-family: var(--primary-font);
 }
 
 main {
@@ -97,6 +100,10 @@ header{
 .header-round-info-container{
     display: flex;
     justify-content: space-evenly;
+}
+.current-status{
+    font-size: 1.5rem;
+    text-align: center;
 }
 
 
